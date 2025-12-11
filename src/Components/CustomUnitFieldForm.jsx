@@ -108,8 +108,9 @@ const CustomUnitFieldForm = () => {
 
   return (
     <div className="flex h-screen bg-gray-50">
+        
       {/* Left Sidebar - Field Types */}
-      <div className="w-56 bg-white border-r border-gray-200 p-4 overflow-y-auto">
+      {/* <div className="w-56 bg-white border-r border-gray-200 p-4 overflow-y-auto">
         <div className="mb-4">
           <h3 className="text-sm font-semibold text-gray-700 mb-2">Configuration Categories →</h3>
           <p className="text-xs text-gray-500 mb-3">Master Data → Unit Form Builder</p>
@@ -128,15 +129,16 @@ const CustomUnitFieldForm = () => {
             </button>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Main Content Area */}
       <div className="flex-1 overflow-y-auto">
-        <div className="max-w-4xl mx-auto p-8">
+        <div className="max-full mx-auto p-8">
+            <h1 className="text-2xl font-semibold mb-6">Custom Unit Field</h1>
           {/* Drop Zone */}
-          <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 mb-6 text-center bg-white">
+          {/* <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 mb-6 text-center bg-white">
             <p className="text-gray-500">Drag and drop fields here to start building your form</p>
-          </div>
+          </div> */}
 
           {/* Identity Section */}
           <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
@@ -536,9 +538,9 @@ const CustomUnitFieldForm = () => {
           </div>
 
           {/* Drop Zone at Bottom */}
-          <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center bg-white mb-6">
+          {/* <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center bg-white mb-6">
             <p className="text-gray-500">Drop fields here</p>
-          </div>
+          </div> */}
 
           {/* Action Buttons */}
           <div className="flex justify-center gap-4">
