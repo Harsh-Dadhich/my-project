@@ -4,7 +4,7 @@ import Navbar from "./Components/Navbar";
 import PropertyTypesPage from "./Components/PropertyTypesPage";
 import UnitTypesPage from "./Components/UnitTypesPage";
 import TenantManagement from "./Components/Tenant/TenantManagement";
-// import ContactHierarchy  from "./Components/Tenant/ContactHierarchy";
+import ContactHierarchy  from "./Components/Tenant/ContactHierarchy";
 import CustomUnitFieldForm from "./Components/CustomUnitFieldForm";
 
 // function App() {

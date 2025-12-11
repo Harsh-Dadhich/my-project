@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Eye, Edit, X } from 'lucide-react';
+import ContactHierarchy from "./ContactHierarchy";
+import TenantDetailsPage from "./TenantDetailsPage"
+import CommunicationLogPage from './CommunicationLogPage';
 
 const TenantManagement = () => {
   const [showForm, setShowForm] = useState(false);
@@ -134,25 +137,72 @@ const TenantManagement = () => {
       default: return 'text-gray-600';
     }
   };
-
+  const [activeTab, setActiveTab] = useState("overview");
   if (showForm) {
     return (
       <div className="min-h-screen bg-gray-50 p-6">
         <div className="max-w-6xl mx-auto bg-white rounded-lg shadow">
           <div className="border-b px-6 py-4 flex items-center justify-between">
-            <div className="flex space-x-8">
+            {/* <div className="flex space-x-8">
               <button className="text-blue-600 border-b-2 border-blue-600 pb-2 font-medium">Overview</button>
               <button className="text-gray-600 pb-2">Contacts & Hierarchy</button>
               <button className="text-gray-600 pb-2">KYC & Documents</button>
               <button className="text-gray-600 pb-2">Communication Log</button>
-            </div>
+            </div> */}
+            
+
+            <div className="flex space-x-8">
+              <button
+                className={`pb-2 font-medium ${
+                activeTab === "overview"
+                ? "text-blue-600 border-b-2 border-blue-600"
+                : "text-gray-600"
+                }`}
+                onClick={() => setActiveTab("overview")}
+                >
+                 Overview
+                </button>
+
+                <button
+                  className={`pb-2 font-medium ${
+                  activeTab === "contacts"
+                  ? "text-blue-600 border-b-2 border-blue-600"
+                  : "text-gray-600"
+                  }`}
+                  onClick={() => setActiveTab("contacts")}
+                >
+                Contacts & Hierarchy
+              </button>
+
+  <button className={`pb-2 font-medium ${
+                  activeTab === "kyc"
+                  ? "text-blue-600 border-b-2 border-blue-600"
+                  : "text-gray-600"
+                  }`} onClick={() => setActiveTab("kyc")}>
+    KYC & Documents
+  </button>
+
+  <button
+    className={`pb-2 font-medium ${
+                  activeTab === "communication"
+                  ? "text-blue-600 border-b-2 border-blue-600"
+                  : "text-gray-600"
+                  }`}
+    onClick={() => setActiveTab("communication")}
+  >
+    Communication Log
+  </button>
+</div>
             <button onClick={() => setShowForm(false)} className="text-gray-400 hover:text-gray-600">
               <X size={20} />
             </button>
           </div>
 
           <form onSubmit={handleSubmit} className="p-6">
-            <div className="mb-8">
+            
+            {activeTab === "overview" && (
+  <>
+    <div className="mb-8">
               <h2 className="text-lg font-semibold mb-4">Tenant Identity</h2>
               <div className="grid grid-cols-3 gap-6">
                 <div>
@@ -381,6 +431,21 @@ const TenantManagement = () => {
                 </div>
               </div>
             </div>
+  </>
+)}
+
+{activeTab === "contacts" && (
+  <ContactHierarchy />
+)}
+
+{activeTab === "kyc" && (
+  <TenantDetailsPage />
+)}
+
+{activeTab === "communication" && (
+  <CommunicationLogPage />
+)}
+
 
             <div className="flex justify-end space-x-4">
               <button
